@@ -3,5 +3,8 @@ resource "aws_vpc" "vpc" {
   enable_dns_support   = "true"
   enable_dns_hostnames = "true"
   instance_tenancy     = "default"
+  tags = {
+    Name = "iac-lab-placeholder:mk"
+  }
 }
 
