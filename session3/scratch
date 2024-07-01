@@ -1,0 +1,28 @@
+import {
+  to = aws_subnet.public_subnet
+  id = "subnet-04d6ea53244ca2030"
+}
+
+
+resource "aws_subnet" "public_subnet_cli" {
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = "192.168.1.96/28"
+  tags = {
+    Name = "mk-iac-lab-console-created"
+  }
+}
+
+
+
+moved {
+  from = aws_instance.public_subnet_cli
+  to   = aws_instance.public_subnet_ui_created
+}
+
+resource "aws_subnet" "public_subnet_ui_created" {
+  vpc_id            = aws_vpc.vpc.id
+  cidr_block        = "192.168.1.96/28"
+  tags = {
+    Name = "mk-iac-lab-console-created"
+  }
+}
